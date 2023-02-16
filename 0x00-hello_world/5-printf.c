@@ -3,11 +3,11 @@
 /**
  * main - Entry point
  * Description: printf function
- * Return: 0
+ * Return: Always 0 (Success)
  */
 
 int main(void)
 {
 	printf("%s", "with proper grammar, but the outcome is a piece of art,\n");
-	retun (0);
+	return (0);
 }
