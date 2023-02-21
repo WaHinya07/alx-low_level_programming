@@ -8,18 +8,9 @@
  */
 int _islower(int c)
 {
-	int l = 'a';
-
-	while (l <= 'z')
-	{
-		l++;
-	}
-	{
-	/* parameters for int c */
-	if (c == l)
-	{
-	return (1);
-	}
-	}
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }
+
