@@ -3,7 +3,7 @@
 
 /**
  * main - Prints minimum amount of coins to make change
- * @args: Paramater Entry
+ * @argc: Paramater Entry
  * @argv: One number of argumets
  * Return: zero onOne number of argumetsr
  */
