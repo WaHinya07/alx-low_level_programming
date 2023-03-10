@@ -4,26 +4,23 @@
  * main - Prints a progarm that multiplies 2 numbers
  * @argc: Number of arguments
  * @argv: Array of arguments
- * Return: 0 (success),otherwise 1
+ * Return: 0 (success), otherwise return 1
  */
 int main(int argc, char *argv[])
 {
-	int i, j;
+	int num1, num2, prod;
 
-	if (argc == 1 || argc == 2)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else
-	{
-		j = 1;
 
-		for (i = 1; i < 3; i++)
-		j *= _atoi(argv[i]);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	prod = num1 * num2;
 
-		printf("%d\n", j);
-	}
+	printf("%d\n", prod);
 
 	return (0);
 }
