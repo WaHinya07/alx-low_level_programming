@@ -13,7 +13,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int * *twoDgrid;
+	int **twoDgrid;
 	int i_row;
 	int j_col;
 
