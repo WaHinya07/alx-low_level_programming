@@ -13,36 +13,33 @@
  */
 int *array_range(int min, int max)
 {
-	int *arr;
-	int i;
-	int length;
+	int index;
+	int *pointer;
+	int len;
 
 	if (min > max)
 	{
 		return (NULL);
 	}
 
-	length = 0;
-
-	for (i = 0; i <= max; i++)
+	len = 0;
+	for (index = min; index <= max; index++)
 	{
-		length++;
+		len++;
 	}
 
-	arr = malloc(sizeof(int) * length);
-
-	if (arr == NULL)
+	pointer = malloc(sizeof(int) * len);
+	if (pointer == NULL)
 	{
 		return (NULL);
 	}
 
-	i = 0;
-
+	index = 0;
 	while (min <= max)
 	{
-		arr[i] = min;
-		i++;
+		pointer[index] = min;
+		index++;
 		min++;
 	}
-	return (arr);
+	return (pointer);
 }
