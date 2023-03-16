@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 /**
  * array_range - Function creates an array of integers with a
  * range of min and max values included
