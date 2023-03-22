@@ -21,15 +21,16 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i = 0;
+	int index;
 
-	while (ops[i].op != NULL)
+	index = 0;
+	while (ops[index].f != NULL)
 	{
-		if (*ops[i].op == *s)
-		{
-			return (ops[i].f);
-		}
-		i++;
+		if (*s == *(ops[index].op) && s[1] == '\0')
+			return (ops[index].f);
+		index++;
 	}
-	return (NULL);
+
+	printf("Error\n");
+	exit(99);
 }
