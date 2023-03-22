@@ -4,8 +4,11 @@
 /**
  * file: 3-calc.h
  * Description: Headesr file containing function prototypes
- * for addition,subtraction,multiplication,division and
- * modulo
+ * for add,sub,mul,div and
+ * mod
+ * @a: first integer
+ * @b: second integer
+ * Return: result
  */
 
 int op_add(int a, int b);
