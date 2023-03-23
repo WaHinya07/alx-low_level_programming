@@ -23,7 +23,7 @@ int sum_them_all(const unsigned int n, ...)
 
 	va_start(numbers, n);
 	total = 0;
-	
+
 	for (i = 0; i < n; i++)
 		total += va_arg(numbers, int);
 
