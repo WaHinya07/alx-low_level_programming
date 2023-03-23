@@ -7,6 +7,7 @@
  * file - variadic_functions.h
  * Description: A header file that contains all prototypes
  * for the variadic functions, and _putchar prototype
+ * @char: is the variable type
  * Return: result desired
  */
 int _putchar(char);
