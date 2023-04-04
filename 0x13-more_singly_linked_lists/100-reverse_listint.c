@@ -1,7 +1,5 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 /**
  * reverse_listint - Reverses a listint_t list
  * @head: A pointer to the address of the head of the list
