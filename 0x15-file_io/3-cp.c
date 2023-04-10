@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
 		free(buff);
 		exit(99);
 	}
+	bytes_read = (fd_from, buff, 1024);
 	fd_to = open(argv[2], O_WRONLY | O_APPEND);
 
 	while (bytes_read > 0)
