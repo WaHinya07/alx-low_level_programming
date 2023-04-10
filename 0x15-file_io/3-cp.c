@@ -24,7 +24,7 @@ char *define_buffer(char *filename)
  * @fd: The file descriptors to be closed
  * Return: 0 upon succes and preset value upon failure
  */
-void close(int fd)
+int close(int fd)
 {
 	int x;
 
@@ -35,6 +35,7 @@ void close(int fd)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
+	return (0);
 }
 /**
  * main - Entry point
