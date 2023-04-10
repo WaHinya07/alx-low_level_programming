@@ -59,28 +59,29 @@ int main(int argc, char *argv[])
 	bytes_read = read(fd_from, buff, 1024);
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (fd_from == -1 || bytes_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		free(buff);
-		exit(98);
-	}
-	bytes_written = write(fd_to, buff, bytes_read);
+	do {
+		if (fd_from == -1 || bytes_read == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buff);
+			exit(98);
+		}
+		bytes_written = write(fd_to, buff, bytes_read);
+		
+		if (fd_to == -1 || bytes_written == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			free(buff);
+			exit(99);
+		}
+		bytes_read = read(fd_from, buff, 1024);
+		fd_to = open(argv[2], O_WRONLY | O_APPEND);
+		
+	} while (bytes_read > 0);
+	
+	free(buff);
+	close(fd_from);
+	close(fd_to);
 
-	if (fd_to == -1 || bytes_written == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		free(buff);
-		exit(99);
-	}
-	bytes_read = (fd_from, buff, 1024);
-	fd_to = open(argv[2], O_WRONLY | O_APPEND);
-
-	while (bytes_read > 0)
-	{
-		free(buff);
-		close(fd_from);
-		close(fd_to);
-	}
 	return (0);
 }
