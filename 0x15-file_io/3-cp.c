@@ -35,7 +35,7 @@ int close(int fd)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	return (0);
+	return (fd);
 }
 /**
  * main - Entry point
