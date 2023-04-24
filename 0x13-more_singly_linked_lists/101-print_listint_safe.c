@@ -1,11 +1,11 @@
 #include "lists.h"
 #include <stdio.h>
 
-size_t loop_listint(const listint_t *head);
+size_t looped_listint(const listint_t *head);
 size_t print_listint_safe(const listint_t *head);
 
 /**
- * print_loop - prints a loop in a linked list
+ * looped_listint - prints a loop in a linked list
  * @head: pointer to the head of the linked list
  * Return: 0
  */
