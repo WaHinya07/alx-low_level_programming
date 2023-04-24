@@ -1,25 +1,20 @@
- Desc: 64-bit assembly program that prints
-;       Hello, Holberton followed by a new line.
-
-
-extern printf
+section .data
+    msg db 'Hello, Holberton', 0x0A ;
+message to print, terminated with a new line character (0x0A)
 
 section .text
-   global main
+    global _start
 
-main:
-   push rbp
+_start:
+    ; write the message to stdout
+    mov eax, 4          ; system call for write
+    mov ebx, 1          ; file descriptor for stdout
+    mov ecx, msg        ; message to print
+    mov edx, 16         ; message length in bytes
+    int 0x80            ; invoke the system call
 
-   mov rdi,fmt
-   mov rsi,msg
-   mov rax,0
-   call printf
+    ; exit with status code 0
+    mov eax, 1          ; system call for exit
+    xor ebx, ebx        ; status code (0 = success)
+    int 0x80            ; invoke the system call
 
-   pop rbp
-
-   mov rax,0
-   ret
-
-section .data
-   msg: db "Hello, Holberton", 0
-   fmt: db "%s", 10, 0
