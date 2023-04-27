@@ -1,6 +1,10 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+char *define_buffer(char *file);
+void close_files(int fd);
+
 /**
  * define_buffer - creates and defines 1024 buffer
  * @filename: pointer to the name of the file the buffer will be used for
@@ -20,11 +24,11 @@ char *define_buffer(char *filename)
 	return (buff);
 }
 /**
- * close - closes a file descriptor
+ * close_files - closes a file descriptor
  * @fd: The file descriptors to be closed
  * Return: 0 upon succes and preset value upon failure
  */
-int close(int fd)
+void close_files(int fd)
 {
 	int x;
 
@@ -35,7 +39,6 @@ int close(int fd)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	return (fd);
 }
 /**
  * main - Entry point
@@ -67,7 +70,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		bytes_written = write(fd_to, buff, bytes_read);
-		
+
 		if (fd_to == -1 || bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -76,9 +79,9 @@ int main(int argc, char *argv[])
 		}
 		bytes_read = read(fd_from, buff, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
-		
+
 	} while (bytes_read > 0);
-	
+
 	free(buff);
 	close(fd_from);
 	close(fd_to);
