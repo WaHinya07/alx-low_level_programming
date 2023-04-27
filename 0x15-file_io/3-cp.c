@@ -57,6 +57,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
 	buff = define_buffer(argv[2]);
 	fd_from = open(argv[1], O_RDONLY);
 	bytes_read = read(fd_from, buff, 1024);
@@ -69,6 +70,7 @@ int main(int argc, char *argv[])
 			free(buff);
 			exit(98);
 		}
+
 		bytes_written = write(fd_to, buff, bytes_read);
 
 		if (fd_to == -1 || bytes_written == -1)
@@ -77,14 +79,15 @@ int main(int argc, char *argv[])
 			free(buff);
 			exit(99);
 		}
+
 		bytes_read = read(fd_from, buff, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (bytes_read > 0);
 
 	free(buff);
-	close(fd_from);
-	close(fd_to);
+	close_files(fd_from);
+	close_files(fd_to);
 
 	return (0);
 }
